@@ -16,6 +16,11 @@ function loginPage() {
   } else {
     message.style.color = "red";
     message.textContent = "Invalid username or password!";
+
+    // Append to <head>
+    document.head.removeChild(link);
+    root.style.display = "block";
+    login.style.display = "none";
   }
 }
 
