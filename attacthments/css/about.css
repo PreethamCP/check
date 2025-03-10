@@ -1,0 +1,58 @@
+/* About me section */
+.about {
+  background-color: white;
+  display: flex;
+  justify-content: space-around;
+  padding: 80px;
+}
+
+.headshot {
+  width: 500px;
+  height: 500px;
+  border-radius: 200px;
+  object-fit: cover;
+  display: flex;
+  align-items: center;
+}
+
+.info h1 {
+  font-size: 50px;
+}
+
+.info p {
+  margin: 0;
+  font: var(--ff);
+  font-size: 30px;
+  font-weight: 300;
+}
+@media (max-width: 1000px) {
+  /* About me*/
+
+  .info h1 {
+    font-size: 35px;
+  }
+
+  .info p {
+    margin: 0;
+    font-size: 23px;
+    font-weight: 200;
+  }
+}
+@media (max-width: 700px) {
+  .about {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    height: auto;
+  }
+
+  .headshot {
+    padding: 10px;
+    width: 45vw;
+    height: 45vw;
+  }
+  .info p {
+    font-weight: 100;
+  }
+}

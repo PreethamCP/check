@@ -1,0 +1,177 @@
+* {
+  padding: 0;
+  margin: 0;
+  border: 0;
+  list-style: none;
+  box-sizing: border-box;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+*,
+html {
+  scrollbar-width: none;
+}
+
+:root {
+  --ff: "Poppins", "sans-serif";
+  --h1: bold 90px/120px var(--ff);
+  --h2: bold 60px/80px var(--ff);
+  --h3: 30px/50px var(--ff);
+}
+.login {
+  display: none;
+}
+a {
+  color: white;
+  text-decoration: none;
+  cursor: pointer;
+}
+li {
+  padding: 30px 20px 10px 10px;
+}
+
+section {
+  background-color: #1c1d25;
+  height: 100vh;
+  width: 100vw;
+}
+div {
+  display: block;
+  unicode-bidi: isolate;
+}
+/* Hero sectio */
+.menuOpen,
+.menuClose {
+  z-index: 100;
+  cursor: pointer;
+  display: none;
+  position: fixed;
+  top: 10px;
+  right: 10px;
+}
+.catch {
+  color: white;
+  position: relative;
+  top: 12vh;
+  padding: 20px;
+  margin-left: 70px;
+}
+
+.button {
+  width: 200px;
+  height: 55px;
+  border-radius: 30px;
+  background-color: coral;
+  text-align: center;
+  font-size: 30px;
+  font-weight: 300;
+  padding-top: 5px;
+  margin-top: 20px;
+  cursor: pointer;
+  padding: 10px;
+}
+.button:hover {
+  background-color: #ef744b;
+}
+
+.button:active {
+  background-color: #a9a9a9;
+  color: #808080;
+}
+
+.nav {
+  width: 100vw !important;
+  background-color: #1c1d25;
+  display: flex;
+  flex-direction: row;
+
+  justify-content: space-between;
+  z-index: 100;
+}
+
+.menu {
+  background-color: #1c1d25;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  z-index: 99;
+}
+.logo {
+  height: 200px;
+  width: 200px;
+  border-radius: 50%;
+  margin: 30px;
+}
+h1 {
+  font: var(--h1);
+}
+h2 {
+  font: var(--h2);
+}
+h3 {
+  font: var(--h3);
+}
+.socials {
+  position: absolute;
+  right: 0px;
+  top: 60vh;
+  display: flex;
+  flex-direction: column;
+}
+svg {
+  padding-right: 10px;
+}
+
+@media (max-width: 1000px) {
+  :root {
+    --ff: "Poppins", "sans-serif";
+    --h1: bold 50px/60px var(--ff);
+    --h2: bold 35px/45px var(--ff);
+    --h3: 20px/30px var(--ff);
+  }
+  a {
+    color: rgb(15, 157, 100);
+  }
+  /* Home */
+  .nav {
+    height: 70px;
+    width: 100vw;
+    flex-direction: row;
+    align-items: center;
+  }
+  .menu {
+    background-color: #17181d;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    padding: 150px 0 150px 0;
+    width: 70vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    right: 0;
+  }
+  .logo {
+    height: 60px;
+    width: 60px;
+    margin: 5px;
+  }
+  .menuOpen {
+    display: block;
+  }
+
+  .catch {
+    color: white;
+    position: relative;
+    top: 25vh;
+    padding: 20px;
+    margin-left: 10px;
+  }
+  .button a {
+    color: white;
+  }
+}
