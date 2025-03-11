@@ -22,7 +22,43 @@ loginButton.addEventListener("click", function () {
 });
 
 function loadReactApp() {
+  const { useState } = React;
+
   const App = () => {
+    const [username, setUsername] = useState("");
+    const [password, setPassword] = useState("");
+    const [error, setError] = useState("");
+    const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+    function handleLogin() {
+      if (username === "admin" && password === "1234") {
+        setIsLoggedIn(true);
+      } else {
+        setError("Invalid username or password.");
+      }
+    }
+
+    if (isLoggedIn) {
+      return React.createElement(
+        "div",
+        { style: { textAlign: "center", marginTop: "50px" } },
+        React.createElement("h2", null, `Welcome, ${username}!`),
+        React.createElement("p", null, "You have successfully logged in."),
+        React.createElement(
+          "button",
+          {
+            style: {
+              padding: "8px 15px",
+              cursor: "pointer",
+              marginTop: "10px",
+            },
+            onClick: () => setIsLoggedIn(false),
+          },
+          "Logout"
+        )
+      );
+    }
+
     return React.createElement(
       "div",
       { style: { textAlign: "center", marginTop: "50px" } },
@@ -30,16 +66,26 @@ function loadReactApp() {
       React.createElement("input", {
         type: "text",
         placeholder: "Username",
+        value: username,
+        onChange: (e) => setUsername(e.target.value),
         style: { display: "block", margin: "10px auto", padding: "5px" },
       }),
       React.createElement("input", {
         type: "password",
         placeholder: "Password",
+        value: password,
+        onChange: (e) => setPassword(e.target.value),
         style: { display: "block", margin: "10px auto", padding: "5px" },
       }),
+      error
+        ? React.createElement("p", { style: { color: "red" } }, error)
+        : null,
       React.createElement(
         "button",
-        { style: { padding: "8px 15px", cursor: "pointer" } },
+        {
+          style: { padding: "8px 15px", cursor: "pointer", marginTop: "10px" },
+          onClick: handleLogin,
+        },
         "Login"
       )
     );
@@ -51,45 +97,3 @@ function loadReactApp() {
   const root = ReactDOM.createRoot(reactRoot);
   root.render(React.createElement(App));
 }
-// function loginPage() {
-//   let username = document.getElementById("username").value;
-//   let password = document.getElementById("password").value;
-//   let message = document.getElementById("message");
-
-//   // Hardcoded credentials (for demo purposes)
-//   let correctUsername = "admin";
-//   let correctPassword = "12345";
-
-//   if (username === correctUsername && password === correctPassword) {
-//     alert("Login successful!");
-//     message.style.color = "green";
-//     message.textContent = "Login successful!";
-//     // Redirect to another page (optional)
-//     // window.location.href = "dashboard.html";
-//   } else {
-//     message.style.color = "red";
-//     message.textContent = "Invalid username or password!";
-
-//     // Append to <head>
-//     document.head.removeChild(link);
-//     root.style.display = "block";
-//     login.style.display = "none";
-//   }
-// }
-
-// var root = document.getElementsByClassName("root")[0];
-// var login = document.getElementsByClassName("login")[0];
-// function hideRoot() {
-//   if (root) {
-//     root.style.display = "none";
-//     login.style.display = "flex ";
-//     // Create a <link> element
-//     let link = document.createElement("link");
-//     link.rel = "stylesheet";
-//     link.href = "styles.css"; // Path to your CSS file
-
-//     // Append to <head>
-//     document.head.appendChild(link);
-//   }
-//   loginPage();
-// }
