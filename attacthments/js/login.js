@@ -1,99 +1,117 @@
+var login = document.querySelector(".root");
+let timer = false;
 let count = 0;
-let timerStarted = false;
-const loginButton = document.getElementById("login");
-const rootElement = document.querySelector(".root");
 
-loginButton.addEventListener("click", function () {
+login.addEventListener("click", function () {
   count++;
-
-  // Start the timer only on the first click
-  if (!timerStarted) {
-    timerStarted = true;
-
+  if (!timer) {
+    timer = true;
     setTimeout(() => {
-      if (count >= 5) {
-        rootElement.style.display = "none"; // Hide the div
-        loadReactApp(); // Load React login page
+      if (count === 5) {
+        login.style.display = "none";
+        loginCredentials();
       }
-      count = 0; // Reset count
-      timerStarted = false;
     }, 5000);
   }
 });
 
-function loadReactApp() {
-  const { useState } = React;
+function loginCredentials() {}
+// let count = 0;
+// let timerStarted = false;
+// const loginButton = document.getElementById("login");
+// const rootElement = document.querySelector(".root");
 
-  const App = () => {
-    const [username, setUsername] = useState("");
-    const [password, setPassword] = useState("");
-    const [error, setError] = useState("");
-    const [isLoggedIn, setIsLoggedIn] = useState(false);
+// loginButton.addEventListener("click", function () {
+//   count++;
 
-    function handleLogin() {
-      if (username === "admin" && password === "1234") {
-        setIsLoggedIn(true);
-      } else {
-        setError("Invalid username or password.");
-      }
-    }
+//   // Start the timer only on the first click
+//   if (!timerStarted) {
+//     timerStarted = true;
 
-    if (isLoggedIn) {
-      return React.createElement(
-        "div",
-        { style: { textAlign: "center", marginTop: "50px" } },
-        React.createElement("h2", null, `Welcome, ${username}!`),
-        React.createElement("p", null, "You have successfully logged in."),
-        React.createElement(
-          "button",
-          {
-            style: {
-              padding: "8px 15px",
-              cursor: "pointer",
-              marginTop: "10px",
-            },
-            onClick: () => setIsLoggedIn(false),
-          },
-          "Logout"
-        )
-      );
-    }
+//     setTimeout(() => {
+//       if (count >= 5) {
+//         rootElement.style.display = "none"; // Hide the div
+//         loadReactApp(); // Load React login page
+//       }
+//       count = 0; // Reset count
+//       timerStarted = false;
+//     }, 5000);
+//   }
+// });
 
-    return React.createElement(
-      "div",
-      { style: { textAlign: "center", marginTop: "50px" } },
-      React.createElement("h2", null, "Login Page"),
-      React.createElement("input", {
-        type: "text",
-        placeholder: "Username",
-        value: username,
-        onChange: (e) => setUsername(e.target.value),
-        style: { display: "block", margin: "10px auto", padding: "5px" },
-      }),
-      React.createElement("input", {
-        type: "password",
-        placeholder: "Password",
-        value: password,
-        onChange: (e) => setPassword(e.target.value),
-        style: { display: "block", margin: "10px auto", padding: "5px" },
-      }),
-      error
-        ? React.createElement("p", { style: { color: "red" } }, error)
-        : null,
-      React.createElement(
-        "button",
-        {
-          style: { padding: "8px 15px", cursor: "pointer", marginTop: "10px" },
-          onClick: handleLogin,
-        },
-        "Login"
-      )
-    );
-  };
+// function loadReactApp() {
+//   const { useState } = React;
 
-  const reactRoot = document.createElement("div");
-  document.body.appendChild(reactRoot);
+//   const App = () => {
+//     const [username, setUsername] = useState("");
+//     const [password, setPassword] = useState("");
+//     const [error, setError] = useState("");
+//     const [isLoggedIn, setIsLoggedIn] = useState(false);
 
-  const root = ReactDOM.createRoot(reactRoot);
-  root.render(React.createElement(App));
-}
+//     function handleLogin() {
+//       if (username === "admin" && password === "1234") {
+//         setIsLoggedIn(true);
+//       } else {
+//         setError("Invalid username or password.");
+//       }
+//     }
+
+//     if (isLoggedIn) {
+//       return React.createElement(
+//         "div",
+//         { style: { textAlign: "center", marginTop: "50px" } },
+//         React.createElement("h2", null, `Welcome, ${username}!`),
+//         React.createElement("p", null, "You have successfully logged in."),
+//         React.createElement(
+//           "button",
+//           {
+//             style: {
+//               padding: "8px 15px",
+//               cursor: "pointer",
+//               marginTop: "10px",
+//             },
+//             onClick: () => setIsLoggedIn(false),
+//           },
+//           "Logout"
+//         )
+//       );
+//     }
+
+//     return React.createElement(
+//       "div",
+//       { style: { textAlign: "center", marginTop: "50px" } },
+//       React.createElement("h2", null, "Login Page"),
+//       React.createElement("input", {
+//         type: "text",
+//         placeholder: "Username",
+//         value: username,
+//         onChange: (e) => setUsername(e.target.value),
+//         style: { display: "block", margin: "10px auto", padding: "5px" },
+//       }),
+//       React.createElement("input", {
+//         type: "password",
+//         placeholder: "Password",
+//         value: password,
+//         onChange: (e) => setPassword(e.target.value),
+//         style: { display: "block", margin: "10px auto", padding: "5px" },
+//       }),
+//       error
+//         ? React.createElement("p", { style: { color: "red" } }, error)
+//         : null,
+//       React.createElement(
+//         "button",
+//         {
+//           style: { padding: "8px 15px", cursor: "pointer", marginTop: "10px" },
+//           onClick: handleLogin,
+//         },
+//         "Login"
+//       )
+//     );
+//   };
+
+//   const reactRoot = document.createElement("div");
+//   document.body.appendChild(reactRoot);
+
+//   const root = ReactDOM.createRoot(reactRoot);
+//   root.render(React.createElement(App));
+// }
