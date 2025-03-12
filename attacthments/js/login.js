@@ -15,7 +15,22 @@ login.addEventListener("click", function () {
   }
 });
 
-function loginCredentials() {}
+function loginCredentials() {
+  addStylesheet("./attacthments/css/loginStylesheet.css");
+
+  let loginDiv = document.createElement("div");
+  let loginText = document.createElement("h1");
+  loginText.textContent = "ADMIN LOGIN";
+  loginDiv.appendChild(loginText);
+  document.body.appendChild(loginDiv);
+}
+
+function addStyleshhet(url) {
+  let link = document.createElement("link");
+  link.rel = "loginStylesheet";
+  lint.href = url;
+  link.id = "loginStylesheet";
+}
 // let count = 0;
 // let timerStarted = false;
 // const loginButton = document.getElementById("login");
