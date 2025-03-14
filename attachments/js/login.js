@@ -11,25 +11,51 @@ login.addEventListener("click", function () {
         login.style.display = "none";
         loginCredentials();
       }
-    }, 5000);
+    }, 1000);
   }
 });
 
 function loginCredentials() {
-  addStylesheet("./attacthments/css/loginStylesheet.css");
+  addStylesheet("./attachments/css/loginStylesheet.css"); // Fixed typo in 'attachments'
 
   let loginDiv = document.createElement("div");
+  loginDiv.className = "login";
+
   let loginText = document.createElement("h1");
   loginText.textContent = "ADMIN LOGIN";
   loginDiv.appendChild(loginText);
+
   document.body.appendChild(loginDiv);
+
+  // User Name Section
+  let userDiv = document.createElement("div");
+  userDiv.className = "user";
+
+  let user = document.createElement("h2");
+  user.textContent = "User Name";
+
+  userDiv.appendChild(user);
+  loginDiv.appendChild(userDiv);
+
+  let button = document.createElement("button");
+  button.style.type = "number";
+  // Password Section
+  let passwordDiv = document.createElement("div");
+  passwordDiv.className = "password";
+
+  let password = document.createElement("h2");
+  password.textContent = "Password"; // Corrected text
+
+  passwordDiv.appendChild(password); // Corrected append
+  loginDiv.appendChild(passwordDiv);
 }
 
-function addStyleshhet(url) {
+function addStylesheet(url) {
   let link = document.createElement("link");
-  link.rel = "loginStylesheet";
-  lint.href = url;
+  link.rel = "stylesheet";
+  link.href = url;
   link.id = "loginStylesheet";
+  document.head.appendChild(link);
 }
 // let count = 0;
 // let timerStarted = false;
