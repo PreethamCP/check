@@ -18,4 +18,7 @@ function loggedIn() {
 
 function project() {
   console.log("project phase now");
+  let admin = document.createElement("div");
+  admin.className = "admin";
+  document.getElementById("works");
 }
