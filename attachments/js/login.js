@@ -80,6 +80,7 @@ function loginCredentials() {
       alert("Login Successful!");
 
       errorMsg.style.display = "none";
+      loggedIn();
     } else {
       errorMsg.textContent = "Incorrect Username or Password!";
       errorMsg.style.display = "block";
