@@ -14,8 +14,9 @@ login.addEventListener("click", function () {
     }, 1000);
   }
 });
+
 function loginCredentials() {
-  addStylesheet("./attachments/css/loginStylesheet.css"); // Fixed typo in 'attachments'
+  addStylesheet("./attachments/css/loginStylesheet.css"); // Corrected typo in 'attachments'
 
   let loginDiv = document.createElement("div");
   loginDiv.className = "login";
@@ -29,7 +30,7 @@ function loginCredentials() {
   userDiv.className = "user gen";
 
   let userLabel = document.createElement("h2");
-  userLabel.textContent = "User Name";
+  userLabel.textContent = "Admin Name";
 
   let userInput = document.createElement("input");
   userInput.type = "text";
@@ -60,8 +61,30 @@ function loginCredentials() {
   button.textContent = "Login";
   loginDiv.appendChild(button);
 
-  // Append to body at the end
+  // Error Message
+  let errorMsg = document.createElement("p");
+  errorMsg.style.color = " rgb(0, 0, 0)";
+  errorMsg.style.display = "none";
+  loginDiv.appendChild(errorMsg);
+
   document.body.appendChild(loginDiv);
+
+  // Check password on button click
+  button.addEventListener("click", function () {
+    let correctName = "admin";
+    let correctPassword = "admin"; // Set your correct password
+    if (
+      passwordInput.value === correctPassword &&
+      userInput.value === correctName
+    ) {
+      alert("Login Successful!");
+
+      errorMsg.style.display = "none";
+    } else {
+      errorMsg.textContent = "Incorrect Username or Password!";
+      errorMsg.style.display = "block";
+    }
+  });
 }
 
 function addStylesheet(url) {
@@ -71,6 +94,7 @@ function addStylesheet(url) {
   link.id = "loginStylesheet";
   document.head.appendChild(link);
 }
+
 // let count = 0;
 // let timerStarted = false;
 // const loginButton = document.getElementById("login");
