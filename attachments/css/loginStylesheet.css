@@ -10,3 +10,21 @@ body {
   height: 100%;
   background-color: aquamarine;
 }
+.gen {
+  display: flex;
+  flex-direction: row;
+  padding: 10px;
+}
+
+input {
+  width: 200px;
+  margin: 5px;
+  border-radius: 20px;
+}
+
+button {
+  width: 100px;
+  height: 50px;
+  background-color: rgb(210, 119, 21);
+  border-radius: 20px;
+}

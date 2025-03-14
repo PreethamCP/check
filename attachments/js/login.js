@@ -14,7 +14,6 @@ login.addEventListener("click", function () {
     }, 1000);
   }
 });
-
 function loginCredentials() {
   addStylesheet("./attachments/css/loginStylesheet.css"); // Fixed typo in 'attachments'
 
@@ -25,29 +24,44 @@ function loginCredentials() {
   loginText.textContent = "ADMIN LOGIN";
   loginDiv.appendChild(loginText);
 
-  document.body.appendChild(loginDiv);
-
   // User Name Section
   let userDiv = document.createElement("div");
-  userDiv.className = "user";
+  userDiv.className = "user gen";
 
-  let user = document.createElement("h2");
-  user.textContent = "User Name";
+  let userLabel = document.createElement("h2");
+  userLabel.textContent = "User Name";
 
-  userDiv.appendChild(user);
+  let userInput = document.createElement("input");
+  userInput.type = "text";
+  userInput.placeholder = "Enter username";
+
+  userDiv.appendChild(userLabel);
+  userDiv.appendChild(userInput);
   loginDiv.appendChild(userDiv);
 
-  let button = document.createElement("button");
-  button.style.type = "number";
   // Password Section
   let passwordDiv = document.createElement("div");
-  passwordDiv.className = "password";
+  passwordDiv.className = "password gen";
 
-  let password = document.createElement("h2");
-  password.textContent = "Password"; // Corrected text
+  let passwordLabel = document.createElement("h2");
+  passwordLabel.textContent = "Password";
 
-  passwordDiv.appendChild(password); // Corrected append
+  let passwordInput = document.createElement("input");
+  passwordInput.type = "password";
+  passwordInput.placeholder = "Enter password";
+
+  passwordDiv.appendChild(passwordLabel);
+  passwordDiv.appendChild(passwordInput);
   loginDiv.appendChild(passwordDiv);
+
+  // Submit Button
+  let button = document.createElement("button");
+  button.type = "button"; // Corrected type
+  button.textContent = "Login";
+  loginDiv.appendChild(button);
+
+  // Append to body at the end
+  document.body.appendChild(loginDiv);
 }
 
 function addStylesheet(url) {
